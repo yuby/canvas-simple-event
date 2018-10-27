@@ -1,16 +1,26 @@
 {
   "name": "canvas-simple-event",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.1.1",
+  "description": "simple event module for canvas",
+  "keywords": ["canvas", "event", "dom"],
+  "author": {
+		"name": "yuby",
+		"email": "leesyub@gmail.com"
+	},
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yuby/canvas-simple-event"
+  },
   "main": "dist/canvas-simple-event.js",
   "module": "dist/canvas-simple-event.js",
+  "bugs": {
+    "url": "https://github.com/yuby/canvas-simple-event/issues"
+  },
   "scripts": {
     "dev": "NODE_ENV=development webpack-dev-server --config ./webpack.config.js --inline",
     "build": "NODE_ENV=production webpack --config ./webpack.prod.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
     "@babel/plugin-transform-runtime": "^7.1.0",
