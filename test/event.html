@@ -19,7 +19,9 @@
     <div id="eventable"></div>
     <script>
 
-      simpleEvent('#eventable')
+      const event = simpleEvent('#eventable');
+
+        event
         .on('click', (e) => {
           console.log('click', e)
         }, (e) => {
@@ -43,6 +45,8 @@
         .on('wheel', (e) => {
           console.log('wheel', e)
         });
+
+        console.log(event.getEvent())
     </script>
     </body>
 

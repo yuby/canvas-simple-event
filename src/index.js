@@ -128,6 +128,16 @@ const SimpleEvent = (selector) => {
     }
   }
 
+  Object.assign(_SimpleEvent.prototype, {
+    getEvent(type) {
+      if (event[type]) {
+        return event[type];
+      }
+
+      return [];
+    },
+  });
+
   const simpleEventInstance = new _SimpleEvent(selector);
 
   return simpleEventInstance;
