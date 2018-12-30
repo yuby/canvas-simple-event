@@ -56,11 +56,11 @@ const SimpleEvent = (selector) => {
 
     this.element.addEventListener('mousedown', EVENTS_CALLBACK.mouseDown);
 
-    window.addEventListener('mouseup', (e) => {
-      window.removeEventListener('mousemove', EVENTS_CALLBACK.mouseDrag);
-    });
+    // window.addEventListener('mouseup', (e) => {
+    //   window.removeEventListener('mousemove', EVENTS_CALLBACK.mouseDrag);
+    // });
 
-    this.element.addEventListener('mouseup', (e) => {
+    window.addEventListener('mouseup', (e) => {
       e.preventDefault();
       window.removeEventListener('mousemove', EVENTS_CALLBACK.mouseDrag);
 

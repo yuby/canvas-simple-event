@@ -1,6 +1,6 @@
 {
   "name": "canvas-simple-event",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "simple event module for canvas",
   "keywords": ["canvas", "event", "dom"],
   "author": {
