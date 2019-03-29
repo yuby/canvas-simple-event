@@ -1,13 +1,13 @@
 {
   "name": "canvas-simple-event",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "description": "simple event module for canvas",
   "keywords": ["canvas", "event", "dom"],
   "author": {
 		"name": "yuby",
 		"email": "leesyub@gmail.com"
 	},
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/yuby/canvas-simple-event"

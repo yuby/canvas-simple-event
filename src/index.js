@@ -44,29 +44,13 @@ const SimpleEvent = (selector) => {
       clickCnt += 1;
       window.addEventListener('mousemove', EVENTS_CALLBACK.mouseDrag);
     },
-  };
-
-  function bindInitialEvevnt() {
-    this.element.oncontextmenu = (e) => {
-      if (event.rightClick && e.which === 3) {
-        EVENTS_CALLBACK.mouseRightClick(e);
-      }
-      return false;
-    };
-
-    this.element.addEventListener('mousedown', EVENTS_CALLBACK.mouseDown);
-
-    // window.addEventListener('mouseup', (e) => {
-    //   window.removeEventListener('mousemove', EVENTS_CALLBACK.mouseDrag);
-    // });
-
-    window.addEventListener('mouseup', (e) => {
+    mouseUp(e) {
       e.preventDefault();
       window.removeEventListener('mousemove', EVENTS_CALLBACK.mouseDrag);
+      window.removeEventListener('mouseup', EVENTS_CALLBACK.mouseUp);
 
       if (isDragging) {
         EVENTS_CALLBACK.mouseDragEnd(e);
-        window.removeEventListener('mousemove', EVENTS_CALLBACK.mouseDrag);
 
         isDragging = false;
       }
@@ -79,8 +63,27 @@ const SimpleEvent = (selector) => {
         }
         clickCnt = 0;
       }, 100);
+    },
+  };
+
+  function bindInitialEvevnt() {
+    const targetElement = this.element;
+
+    targetElement.oncontextmenu = (e) => {
+      if (e.which === 3) {
+        EVENTS_CALLBACK.mouseRightClick(e);
+      }
+      return false;
+    };
+
+    targetElement.addEventListener('mousedown', (e) => {
+      if (e.which !== 3) {
+        window.addEventListener('mouseup', EVENTS_CALLBACK.mouseUp);
+        EVENTS_CALLBACK.mouseDown(e, targetElement);
+      }
     });
-    this.element.addEventListener('wheel', (e) => {
+
+    targetElement.addEventListener('wheel', (e) => {
       setTimeout(() => {
         if (EVENTS_CALLBACK.mouseWheel) EVENTS_CALLBACK.mouseWheel(e);
       }, 1);

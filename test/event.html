@@ -10,43 +10,41 @@
         left: 0;
         background-color: #f1f1f1;
       }
-      #roadview { z-index: 999; }
+      #roadview { z-index: 999; background-color: red; width: 50%; }
       #eventable { z-index: 0; }
     </style>
   </head>
   <body>
-
+    <div id="roadview"></div>
     <div id="eventable"></div>
     <script>
 
       const event = simpleEvent('#eventable');
 
-        event
+      event
         .on('click', (e) => {
-          console.log('click', e)
+          console.log('click')
         }, (e) => {
-          console.log('deep click', e)
+          console.log('deep click')
         })
         .on('dbclick', (e) => {
-          console.log('dbclick', e)
+          console.log('dbclick')
         })
         .on('rightClick', (e) => {
-          console.log('rightClick', e)
+          console.log('rightClick')
         })
         .on('dragStart', (e) => {
-          console.log('dragStart', e)
+          console.log('dragStart')
         })
         .on('drag', (e) => {
-          console.log('drag', e)
+          console.log('drag')
         })
         .on('dragEnd', (e) => {
-          console.log('dragEnd', e)
+          console.log('dragEnd')
         })
         .on('wheel', (e) => {
-          console.log('wheel', e)
+          console.log('wheel')
         });
-
-        console.log(event.getEvent())
     </script>
     </body>
 
